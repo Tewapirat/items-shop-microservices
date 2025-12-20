@@ -7,6 +7,7 @@ import (
 
 	"github.com/TewApirat/items-shop-ms/config"
 	"github.com/TewApirat/items-shop-ms/pkg/database"
+	"github.com/TewApirat/items-shop-ms/server"
 )
 
 func main(){
@@ -27,5 +28,6 @@ func main(){
 	db := database.DbConn(ctx, &cfg)
 	defer db.Disconnect(ctx)
 
-	log.Println(db)
+	// start server 
+	server.Start(ctx, &cfg, db)
 }

@@ -1,4 +1,4 @@
-package middlewareusecase
+package middlewareUsecase
 
 import(
 	"github.com/TewApirat/items-shop-ms/modules/middleware/middlewareRepository"
@@ -8,10 +8,10 @@ type (
 	MiddlewareUsecaseService interface{}
 
 	middlewareUsecase struct{
-		middlewareRepository middlewarerepository.MiddlewareRepositoryService
+		middlewareRepository middlewareRepository.MiddlewareRepositoryService
 	}
 )
 
-func NewMiddlewareUasecase(middlewareRepository middlewarerepository.MiddlewareRepositoryService)MiddlewareUsecaseService{
+func NewMiddlewareUasecase(middlewareRepository middlewareRepository.MiddlewareRepositoryService)MiddlewareUsecaseService{
 	return &middlewareUsecase{middlewareRepository}
 }

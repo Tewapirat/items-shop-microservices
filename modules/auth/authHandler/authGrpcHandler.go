@@ -1,4 +1,4 @@
-package authhandler
+package authHandler
 
 import (
 	"github.com/TewApirat/items-shop-ms/modules/auth/authUsecase"
@@ -6,10 +6,10 @@ import (
 
 type (
 	authGrpcHandler struct {
-		authUseCase authusecase.AuthUsecaseService
+		authUseCase authUsecase.AuthUsecaseService
 	}
 )
 
-func NewAuthGrpcHandler(authUseCase authusecase.AuthUsecaseService) *authGrpcHandler{
+func NewAuthGrpcHandler(authUseCase authUsecase.AuthUsecaseService) *authGrpcHandler{
 	return &authGrpcHandler{authUseCase}
 }

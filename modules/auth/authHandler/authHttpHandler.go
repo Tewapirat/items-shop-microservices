@@ -1,4 +1,4 @@
-package authhandler
+package authHandler
 
 import (
 	"github.com/TewApirat/items-shop-ms/config"
@@ -10,10 +10,10 @@ type (
 
 	authHttpHandler struct {
 		cfg 		*config.Config
-		authUsecase authusecase.AuthUsecaseService
+		authUsecase authUsecase.AuthUsecaseService
 	}
 )
 
-func NewAuthHandler(cfg * config.Config, authUsecase authusecase.AuthUsecaseService)AuthHttpHandlerService{
+func NewAuthHttpHandler(cfg * config.Config, authUsecase authUsecase.AuthUsecaseService)AuthHttpHandlerService{
 	return &authHttpHandler{cfg, authUsecase}
 }

@@ -1,4 +1,4 @@
-package authusecase
+package authUsecase
 
 import (
 	"github.com/TewApirat/items-shop-ms/modules/auth/authRepository"
@@ -8,10 +8,10 @@ type (
 	AuthUsecaseService interface{}
 
 	authUsecase struct {
-		authRepository authrepository.AuthRepositoryService
+		authRepository authRepository.AuthRepositoryService
 	}
 )
 
-func NewAuthUasecase(authRepository authrepository.AuthRepositoryService) AuthUsecaseService {
+func NewAuthUasecase(authRepository authRepository.AuthRepositoryService) AuthUsecaseService {
 	return &authUsecase{authRepository}
 }

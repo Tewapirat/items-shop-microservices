@@ -1,4 +1,4 @@
-package middlewarerepository
+package middlewareRepository
 
 type (
 	MiddlewareRepositoryService interface{}

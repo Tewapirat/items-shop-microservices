@@ -1,4 +1,4 @@
-package authrepository
+package authRepository
 
 import (
 	"context"
@@ -10,16 +10,16 @@ type (
 
 	AuthRepositoryService interface{}
 
-	authrepository struct {
+	authRepository struct {
 		db *mongo.Client
 	}
 )
 
 func NewAuthRepositoryService(db *mongo.Client)AuthRepositoryService {
-	return &authrepository{db}
+	return &authRepository{db}
 }
 
 
-func (r * authrepository)authDbConn(pctx context.Context) *mongo.Database{
+func (r * authRepository)authDbConn(pctx context.Context) *mongo.Database{
 	return r.db.Database("auth_db")
 }
