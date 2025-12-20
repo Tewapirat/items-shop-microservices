@@ -19,5 +19,5 @@ func (s *server) paymentService(){
 	payment := s.app.Group("/payment_v1")
 
 	// Health Check
-	_ = payment
+	payment.GET("", s.healthCheckService)
 }
