@@ -1,9 +1,13 @@
 package server
 
-import(
-		"github.com/TewApirat/items-shop-ms/modules/player/playerRepository"
-		"github.com/TewApirat/items-shop-ms/modules/player/playerUsecase"
-		"github.com/TewApirat/items-shop-ms/modules/player/playerHandler"
+import (
+	"log"
+
+	"github.com/TewApirat/items-shop-ms/modules/player/playerHandler"
+	playerPb "github.com/TewApirat/items-shop-ms/modules/player/playerPb"
+	"github.com/TewApirat/items-shop-ms/modules/player/playerRepository"
+	"github.com/TewApirat/items-shop-ms/modules/player/playerUsecase"
+	"github.com/TewApirat/items-shop-ms/pkg/grpccon"
 )
 
 func (s *server) playerService(){
@@ -12,6 +16,16 @@ func (s *server) playerService(){
 	httpHandler := playerHandler.NewPlayerHttpHandler(s.cfg, usecase)
 	grpcHandler := playerHandler.NewPlayerGrpcHandler(usecase)
 	queueHandler := playerHandler.NewPlayerQueueHandler(s.cfg, usecase)
+
+	// gRPC
+	go func ()  {
+		grpcServer, lis := grpccon.NewGrpcServer(&s.cfg.Jwt, s.cfg.Grpc.PlayerUrl)
+		playerPb.RegisterPlayerGrpcServiceServer(grpcServer, grpcHandler)
+
+		log.Printf("Player gRPC server listening on %s", s.cfg.App.Url)
+		grpcServer.Serve(lis)
+
+	}()
 
 	_ = httpHandler
 	_ = grpcHandler

@@ -1,0 +1,28 @@
+// Version
+syntax = "proto3" ;
+
+// Package name
+option go_package = "github.com/TewApirat/items-shop-ms";
+
+
+// Structures
+message AccessTokenSearchReq {
+    string access_token = 1;
+}
+
+message AccessTokenSearchRes {
+    bool is_valid = 1;
+}
+
+message RolesCountReq {}
+
+message RolesCountRes {
+    int64 count = 1;
+}
+
+// Service
+service AuthGrpcService {
+    rpc AccessTokenSearch(AccessTokenSearchReq) returns (AccessTokenSearchRes);
+    rpc RoleCount(RolesCountReq) returns (RolesCountRes);
+}
+

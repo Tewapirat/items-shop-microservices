@@ -1,0 +1,29 @@
+// Version
+syntax = "proto3" ;
+
+// Package name
+option go_package = "github.com/TewApirat/items-shop-ms";
+
+
+// Structures
+message  FindItemsInIdsReq {
+    repeated string ids = 1;
+}
+
+message FindItemsInIdsRes {
+    repeated Item items = 1;
+}
+
+message Item {
+    string id = 1;
+    string title = 2;
+    double price = 3;
+    string image_url = 4;
+    int32 damage = 5;
+
+}
+// Service
+service ItemGrpcService {
+    rpc FindItemsInIds (FindItemsInIdsReq) returns (FindItemsInIdsRes);
+
+   }

@@ -1,0 +1,39 @@
+// Version
+syntax = "proto3" ;
+
+// Package name
+option go_package = "github.com/TewApirat/items-shop-ms";
+
+
+// Structures
+message PlayerProfile {
+    string id = 1;
+    string email = 2;
+    string username = 3;
+    int32 rolecode = 4;
+    string created_at = 5;
+    string updated_at = 6;
+}
+
+message CredentialSearchReq {
+    string email = 1;
+    string password = 2;
+}
+
+message FindOnePlayerProfileToRefreshReq {
+    string player_id = 1;
+}
+message GetPlayerSavingAccountReq {
+    string player_id = 1;
+}
+message GetPlayerSavingAccountRes {
+    string player_id = 1;
+    double balance = 2;
+}
+
+// Service
+service PlayerGrpcService {
+    rpc CredentialSearch(CredentialSearchReq) returns (PlayerProfile);
+    rpc FindOnePlayerProfileToRefresh(FindOnePlayerProfileToRefreshReq) returns (PlayerProfile);
+    rpc GetPlayerSavingAccount(GetPlayerSavingAccountReq) returns (GetPlayerSavingAccountRes);
+}
