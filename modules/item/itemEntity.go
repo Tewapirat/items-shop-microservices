@@ -14,8 +14,8 @@ type(
 		Damage int `json:"damage" bson:"damage"`
 		ImageUrl string `json:"image_url" bson:"image_url"`
 		UsageStatus bool `json:"usage_status" bson:"usage_status"`
-		CreateAt 	 time.Time 			`json:"created_at" bson:"created_at"`
-		UpdateAt 	 time.Time 			`json:"updated_at" bson:"updated_at"`
+		CreatedAt 	 time.Time 			`json:"created_at" bson:"created_at"`
+		UpdatedAt 	 time.Time 			`json:"updated_at" bson:"updated_at"`
 
 	}
 )

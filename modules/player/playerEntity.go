@@ -15,12 +15,12 @@ type(
 		Username 	string 			`json:"username" bson:"username"`
 		CreatedAt 	time.Time 		`json:"created_at" bson:"created_at"`
 		UpdatedAt 	time.Time 		`json:"updated_at" bson:"updated_at"`
-		PlayerRole []PlayerRole 	`bson:"player_roles"`
+		PlayerRoles []PlayerRole	`bson:"player_roles"`
 		
 	}
 
 	PlayerRole struct{
-		RoleTitle string `josn:"role_title" bson:"role_title"`
+		RoleTitle string `json:"role_title" bson:"role_title"`
 		RoleCode int `json:"role_code" bson:"role_code"` 
 	}
 
@@ -35,5 +35,11 @@ type(
 	PlayerSavingAccount struct {
 		PlayerId 	string `json:"player_id" bson:"player_id"`
 		Balance 	float64 `json:"balance" bson:"balance"`
+	}
+
+	PlayerTransaction struct {
+		PlayerId 	string 			`bson:"player_id"`
+		Amount 		float64 		`bson:"amount"`
+		CreatedAt 	time.Time 		`bson:"created_at"`
 	}
 )
